@@ -1,0 +1,41 @@
+body {
+    background-color: white;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    padding-left: 200px;
+    display:flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.options {
+    padding-right: 100px;
+    padding-left: 500px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.toplink {
+    color: grey;
+}
+
+.divider{
+    height: 1px;
+    width: 100%;
+    background-color: lightgrey;
+}
+
+.image {
+    padding-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.text{
+    display: flex;
+    justify-content: center;
+}
