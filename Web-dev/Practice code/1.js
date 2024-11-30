@@ -1,6 +1,7 @@
 function solve(arr){
     
-    console.log(arr.filter(user=> user.age>18 && user.gender=="male"))
+    console.log(arr.filter(user=> user.age>18 && user .gender=="male"))
+    
 } 
 
 
