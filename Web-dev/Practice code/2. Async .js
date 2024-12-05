@@ -66,7 +66,7 @@ console.log("done!");
 // it sets the function to work after the time out period but all the other things work while the timer is working 
 
 function timeout() {
-     console.log("1st stetement");
+     console.log("1st statement");
 }
 
 console.log("2nd statement");
