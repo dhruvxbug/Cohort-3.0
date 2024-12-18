@@ -60,6 +60,7 @@ body {
 .content{
     display: flex;
     justify-content: center;
+    margin: 0px auto;
     padding-left: 100px;
     padding-right: 100px;
 }
