@@ -1,34 +1,29 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Horizontal Align</title>
+    <title>Document </title>
     <style>
-        .container {
-            width: 1200px;
-            /* margin: 0px auto; */
-            background-color: red;
+        .one{
+            flex-grow: 1;
+            background-color: blue;
         }
-
-        .content {
-            height: 500px;
+        .two{
+            flex-grow: 2;
+            background-color: red;
         }
     </style>
 </head>
-
 <body>
-    <center><div style="display: flex; justify-content: center;">
-        <div class="container">
-            <div class="content">
-                <h1>Hello World</h1>
-            </div>
-        </div>
-    </div></center>
+    <div style="display: flex; ">
+        <div class="one"> 
+        <p> block 1 </p>
+    </div>
+    <div class="two">
+        <p> block 2 </p>
+    </div>
+</div>
     
-
 </body>
-
 </html>
