@@ -64,3 +64,12 @@ body {
     padding-left: 100px;
     padding-right: 100px;
 }
+
+.two {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    align: center;
+    color: white;
+    padding-left: 100px;
+    padding-right: 100px;
+}
