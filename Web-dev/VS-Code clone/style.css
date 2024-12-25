@@ -70,6 +70,11 @@ body {
     grid-template-columns: auto auto auto;
     align: center;
     color: white;
-    padding-left: 100px;
-    padding-right: 100px;
+}
+
+.flex {
+    display: flex;
+    height: 30px;
+    width: 30px;
+    
 }
