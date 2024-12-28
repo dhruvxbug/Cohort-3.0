@@ -1,0 +1,21 @@
+** DOM **
+
+1. querySelector.     (mostly)
+2. querySelectorAll   (mostly)
+
+3. placeholder , onclick 
+
+4. getElementById
+5. getElementsByClassName
+
+6. updating involves - innerHTML 
+
+7. getElementById ,but to get the parent node for deleteing we can use - Element.parentNode; 
+
+8. to add an element - appendChild 
+9. to remove an element -removeChild 
+
+10. createElement - to create an element 
+
+
+// querySelector take the tag in the (    ) and the getElementById requires you to create an Id in the element 
