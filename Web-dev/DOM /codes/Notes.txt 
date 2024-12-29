@@ -15,7 +15,7 @@
 8. to add an element - appendChild 
 9. to remove an element -removeChild 
 
-10. createElement - to create an element 
+10. createElement - to create an element  (used to add ,basically used before append)
 
 
 // querySelector take the tag in the (    ) and the getElementById requires you to create an Id in the element 
