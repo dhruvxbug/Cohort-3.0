@@ -9,7 +9,7 @@ let currentIndex = 3;
         return;
       }
 
-      const parentEl = document.getElementById("todos");
+      const parentEl = document.getElementById("todos")
 
       // Create new todo div
       const newTodo = document.createElement('div');
@@ -17,7 +17,7 @@ let currentIndex = 3;
 
       // Create new heading element
       const newHeading = document.createElement('h4');
-      newHeading.textContent = currentIndex + '. ' + todoText;
+      newHeading.textContent = currentIndex + '.' + todoText;
 
       // Create new button element
       const newButton = document.createElement('button');
