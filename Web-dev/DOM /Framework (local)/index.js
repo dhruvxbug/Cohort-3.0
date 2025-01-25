@@ -18,12 +18,18 @@ function deleteLastTodo(){
     render()
 }
 
+function deleteTodo(){
+    todos.pop()
+    render()
+}
+
 //component 
 function createTodoComponent(todo){
     const div = document.createElement("div");
     const h1 = document.createElement("h1");
     const button = document.createElement("button");
     button.innerHTML="Delete"
+    button.setAttribute("onclick", "deleteTodo()")
     h1.innerHTML = todo.title;
     div.append(h1)
     div.append(button)
