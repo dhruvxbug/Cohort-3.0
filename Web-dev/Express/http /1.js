@@ -1,16 +1,10 @@
 const express = require('express');
+const bodyParser = require("body-parser");
+
 
 const app = express()
 
-function loggermiddleware(req , res,next){
-    console.log("Method is "+ req.method);
-    console.log("Route is "+req.url);
-    console.log("Host is "+req.hostname);
-    console.log(new Date());
-    next();
-}
-
-app.use(loggermiddleware);
+app.use(bodyParser.json());
 
 app.get("/add", function(req,res){
     const a = parseInt(req.query.a);
