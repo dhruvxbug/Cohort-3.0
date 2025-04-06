@@ -2,10 +2,14 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 
 const app =express();
-const JWT_SECRET = "IamDad";
+const JWT_SECRET = "dhruvvvvvvvvvv";
 
 app.use(express.json());
 const users =[];
+
+app.get("/", function(req, res) {
+    res.sendFile("./public/index.html")
+})
 
 function logger(req, res, next){
     console.log(req.method+ "request came")
@@ -22,7 +26,7 @@ app.post("/signup",logger, function(req,res){
         })
     }
     users.push({
-        username :username,
+        username: username,
         password: password
     })
     res.json({
@@ -79,4 +83,4 @@ app.get("/me",logger,auth, (req, res) => {
     })
 });
 
-app.listen(3005);
+app.listen(3000);
