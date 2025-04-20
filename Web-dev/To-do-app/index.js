@@ -6,7 +6,7 @@ const {jwt, auth, jwt_secret} = require("./auth")
 const app = express();
 app.use(express.json());
 
-mongoose.connect("mongodb+srv://resetofficer123:iRPqrCkiap45uJhy@cluster0.dprq2v1.mongodb.net/Todo-app-database")
+mongoose.connect("")
 
 app.post("/signup",async function(req, res){
     const email = req.body.email;
