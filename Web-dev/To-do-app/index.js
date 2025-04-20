@@ -1,0 +1,76 @@
+const express = require('express')
+const {UserModel, TodoModel} = require("./db");
+const { default: mongoose } = require('mongoose');
+const {jwt, auth, jwt_secret} = require("./auth")
+
+const app = express();
+app.use(express.json());
+
+mongoose.connect("mongodb+srv://resetofficer123:iRPqrCkiap45uJhy@cluster0.dprq2v1.mongodb.net/Todo-app-database")
+
+app.post("/signup",async function(req, res){
+    const email = req.body.email;
+    const name = req.body.name;
+    const password = req.body.password;
+
+
+      await UserModel.create({
+        name: name,
+        email: email,
+        password: password
+      })
+
+      res.json({
+        message: "you are signed up"
+
+      })
+});
+
+app.post("/signin", async function(req,res){
+    const email = req.body.email;
+    const password = req.body.password;
+
+    const user = await UserModel.findOne({
+        email : email,
+        password: password
+    })
+
+    if (user){
+        const token = jwt.sign({ id: user._id}, jwt_secret);
+        res.json({
+            token: token  
+        })
+    } else {
+        res.status(403).json({
+            message: "UNAUTHROIZED"
+        })
+    }
+});
+
+app.post("/todo",auth, async function(req,res){
+    const userId = req.userId;
+    const title = req.body.title;
+    const done = req.body.done;
+     
+    await TodoModel.create({
+         title,
+        done, 
+        userId
+    })
+    res.json({
+        message:"Todo Created"
+    })
+});
+
+app.get("/todos",auth,async function(req,res){
+    const userId = req.userId;
+
+    const todos = await TodoModel.find({
+       userId
+    });
+    res.json({
+        todos
+    })
+});
+
+app.listen(3000);

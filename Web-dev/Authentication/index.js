@@ -7,10 +7,6 @@ const JWT_SECRET = "dhruvvvvvvvvvv";
 app.use(express.json());
 const users =[];
 
-app.get("/", function(req, res) {
-    res.sendFile("./public/index.html")
-})
-
 function logger(req, res, next){
     console.log(req.method+ "request came")
     next();
@@ -83,4 +79,4 @@ app.get("/me",logger,auth, (req, res) => {
     })
 });
 
-app.listen(3000);
+app.listen(4000);

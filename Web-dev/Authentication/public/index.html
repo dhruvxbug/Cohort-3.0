@@ -10,7 +10,7 @@
             const username = document.getElementById("signup-username").value;
             const password = document.getElementById("signup-password").value;
 
-             await axios.post("http://localhost:3000/signup" ,{
+             await axios.post("http://localhost:4000/signup" ,{
                 username: username,
                 password: password
             })
@@ -20,12 +20,10 @@
             const username = document.getElementById("signin-username").value;
             const password = document.getElementById("signin-password").value;
 
-            const reponse = await axios.post("http://localhost:3000/signin",{
+            const response = await axios.post("http://localhost:4000/signin",{
                 username: username,
                 password: password
-            }).catch(function () {
-              console.log("Promise Rejected");
-           });
+            });
             localStorage.setItem("token", response.data.token);
             alert("You are signed in");
         }
@@ -33,7 +31,7 @@
             const token = localStorage.getItem("token");
 
             if (token) {
-                 const response = await axios.get("http://localhost:3000/me", {
+                 const response = await axios.get("http://localhost:4000/me", {
                    headers: {
                        Authorization: token
                      }
