@@ -6,8 +6,10 @@ const {jwt, auth, jwt_secret} = require("./auth")
 const app = express();
 app.use(express.json());
 
-mongoose.connect("mongodb+srv://resetofficer123:iRPqrCkiap45uJhy@cluster0.dprq2v1.mongodb.net/Todo-app-database")
+mongoose.connect("mongoose_url")
 
+
+//To sign Up and register in the database 
 app.post("/signup",async function(req, res){
     const email = req.body.email;
     const name = req.body.name;
@@ -26,6 +28,7 @@ app.post("/signup",async function(req, res){
       })
 });
 
+// Genereate a JWT Token 
 app.post("/signin", async function(req,res){
     const email = req.body.email;
     const password = req.body.password;
@@ -47,6 +50,7 @@ app.post("/signin", async function(req,res){
     }
 });
 
+// After the Auth middleware => creating a to-do 
 app.post("/todo",auth, async function(req,res){
     const userId = req.userId;
     const title = req.body.title;

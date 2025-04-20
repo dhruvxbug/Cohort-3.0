@@ -11,13 +11,14 @@ function auth(req,res, next){
     const userDetails = jwt.verify(token, jwt_secret);
 
     if (userDetails){
-        req.userId = userDetails.userId
+        req.userId = userDetails.id
         next();
     }else {
         res.status(401).send({
              message: "UNAUTHORIZED"
         })
     }
+    console.log(userDetails.userId)
 }
 
 module.exports = {
