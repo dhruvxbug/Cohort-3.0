@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken')
 const jwt_secret = "IamDhruv"
 
+// authentication function 
 function auth(req,res, next){ 
     const authHeader = req.headers.authorization;
 
@@ -21,6 +22,7 @@ function auth(req,res, next){
     console.log(userDetails.userId)
 }
 
+//exporrt 
 module.exports = {
     jwt, auth, jwt_secret
 }
