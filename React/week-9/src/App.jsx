@@ -1,36 +1,39 @@
-import React, {createContext, useContext, useState} from 'react'
-import {RecoilRoot, atom, useRecoilValue, useSetRecoilState} from 'recoil'
+import { useEffect, useRef, useState } from "react";
 
-const count = atom({
-  key: 'countState',
-  default:0,
-});
+function useDebounce(value, delay){
+  const [debouncedValue, settDebouncedValue] = useState(value);
 
-function Parent(){
-  return(
-    <RecoilRoot>
-      <Increase/>
-      <Value/>
-    </RecoilRoot>
-  );
+  useEffect(()=>{
+    const handler = setTimeout(()=>{
+      settDebouncedValue(value);
+    },delay )
+
+    return ()=>{
+      clearTimeout(handler);
+    }
+  } ,[value, delay]);
+
+  return debouncedValue;
 }
 
-function Increase() {
-  const setCount = useSetRecoilState(count);
+export default function App(){
+  const [inputVal, setInputVal] = useState("");
+  const debouncedValue = useDebounce(inputVal, 200);
+
+  function change(e){
+    setInputVal(e.target.value);
+  }
+
+  useEffect(()=>{
+    console.log("expensive operation");
+  }, [debouncedValue])
+
   return (
-  <button onClick={() => setCount(prevCount => prevCount + 1)}>Increase</button> )
+    <div>
+      <input type="text" onChange={change} />
+    </div>
+  )
 }
 
 
-function Value() {
-  const countValue = useRecoilValue(count);
-  return (<p>Count: {countValue}</p>)
-}
-
-const App = () => {
-  return( <div>
-    <Parent />
-  </div>)
-};
-
-export default App;
+// e.target.value

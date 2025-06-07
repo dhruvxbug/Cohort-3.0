@@ -18,7 +18,7 @@ export default function App(){
   )
 }
 
-// useRef - refrence to a value , such that when you change the value, the component does not re-render 
+// useRef - refrence to a value , such that when you change the value, the component does not re-render , the value persists 
 //useRef is a good middle ground between useState and variable 
 // let value = xyz; is a variable that will cause re-render and the value will get re-initialized and not presist through 
-// new things - .focus() amd .currentz 
+// new things - .focus() amd .current 
