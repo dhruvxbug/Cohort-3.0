@@ -3,15 +3,6 @@ import {useState, createContext, useContext} from 'react'
 //context.ts
 const BulbContext = createContext();
 
-function BulbProvider({children}){
-  const [BulbOn, setBulbOn] =useState(true);
-    return(
-      <BulbContext.Provider BulbOn={BulbOn} setBulbOn={setBulbOn}>
-       {children}
-      </BulbContext.Provider>
-    )
-}
-
 export default function App(){
 
   return(
@@ -21,6 +12,15 @@ export default function App(){
      </BulbProvider>
     </div>
   )
+}
+
+function BulbProvider({children}){
+  const [BulbOn, setBulbOn] =useState(true);
+    return(
+      <BulbContext.Provider BulbOn={BulbOn} setBulbOn={setBulbOn}>
+       {children}
+      </BulbContext.Provider>
+    )
 }
 
 function LightBulb(){
@@ -108,6 +108,52 @@ function CountHunMai(){
   return(
     <div>
       Count: {count}
+    </div>
+  )
+}
+
+//another similar example
+import { useState } from 'react'
+import './App.css'
+
+export default function App() {
+  return (
+    <Counter/>
+  )
+}
+
+function Counter(){
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      {count}
+      <Increase setCount={setCount}/>
+      <Decrease  setCount={setCount}/>
+    </div>
+  )
+} 
+
+function Increase({setCount}){
+
+  function increase(){
+    setCount(c => c+1);
+  }
+  return (
+    <div>
+      <button onClick={increase}> Increase </button>
+    </div>
+  )
+}
+
+
+function Decrease({setCount}){
+   function decrease(){
+    setCount(c => c-1);
+  }
+  return (
+    <div>
+      <button onClick={decrease}> Decrease </button>
     </div>
   )
 }
