@@ -1,47 +1,42 @@
-import { RecoilRoot, useRecoilValue, useSetRecoilState } from "recoil"
-import { counterAtom, evenSelector } from "./store/atoms/Counter"
+import { RecoilRoot, useRecoilValueLoadable, useRecoilStateLoadable } from "recoil";
+import { todoAtomFamily } from "./atoms";
+import React from "react";
 
-
-export default function App(){
-
+export default function App() {
   return (
     <div>
+      <h1>hiiii</h1>
       <RecoilRoot>
-         <Buttons/>
-        <Counter/>
-        <IsEven/>
+        <Todo id={1} />
+        <Todo id={2} />
       </RecoilRoot>
     </div>
-  )
+  );
 }
 
-function Buttons(){
-const setCount = useSetRecoilState(counterAtom);
-
-  return (
-    <div>
-      <button onClick={()=>setCount(c=>c+2)}>Increase</button>
-      <button onClick={()=>setCount(c=>c-1)}>Decrease</button>
-    </div>
-  )
-}
-
-function Counter(){
-  const count = useRecoilValue(counterAtom);
-
-  return(
-    <div>
-     {count}
-    </div>
-  )
-}
-
-function IsEven(){
-  const even = useRecoilValue(evenSelector);
-
-  return (
-    <div>
-     {even? "even" : "odd"}
-    </div>
-  )
+function Todo({ id }) {
+  const currentTodo = useRecoilValueLoadable(todoAtomFamily(id));
+  
+  if (currentTodo.state === "loading"){
+    return (
+      <div>
+        Loading
+      </div>
+    )
+  } 
+  else if (currentTodo.state === "hasValue"){
+    return (
+    <>
+      <div>{currentTodo.contents.title}</div>
+      <div>{currentTodo.contents.description}</div>
+    </>
+  );
+  }
+  else if(currentTodo.state === "hasError"){
+    return (
+      <div>
+        error hun lodu
+      </div>
+    );
+  }
 }
