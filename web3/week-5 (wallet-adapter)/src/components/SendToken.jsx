@@ -1,5 +1,7 @@
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import { LAMPORTS_PER_SOL, PublicKey, SystemProgram, Transaction } from "@solana/web3.js";
+import { Button } from "./retroui/Button";
+import { Input } from "./retroui/Input";
 
 export function SendToken(){
     const wallet = useWallet();
@@ -20,10 +22,13 @@ export function SendToken(){
     }
 
     return (
-        <div>
-            <input type="text" id="to" placeholder="to" />
-            <input type="text" id="amount" placeholder="Amount" />
-            <button onClick={sendTokens}> Send </button>
+        <div className="mb-8">
+        <h1 className="text-2xl font-normal text-gray-800 ">Send SOL: </h1>
+           <div className="flex items-center gap-5" >
+            <Input type="text" id="to" placeholder="public address (to)" />
+            <Input type="text" id="amount" placeholder="Amount" />
+            <Button onClick={sendTokens}> Send </Button>
+        </div>
         </div>
     )
 }

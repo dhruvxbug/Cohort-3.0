@@ -2,6 +2,8 @@ import { useConnection, useWallet } from '@solana/wallet-adapter-react'
 import { useState } from 'react'
 import Wallet from '../App';
 import { LAMPORTS_PER_SOL } from '@solana/web3.js';
+import { Input } from './retroui/Input';
+import { Button } from './retroui/Button';
 
 function AirDrop() {
   const wallet = useWallet();
@@ -14,10 +16,13 @@ function AirDrop() {
   } 
 
   return (
-    <>
-      <input id="amount" type="text" placeholder="Amount" />
-      <button onClick={requestAirdrop}> Send Airdrop</button>
-    </>
+    <div className='mb-8'>
+     <h2 className="text-2xl font-normal text-gray-800">Request Testnet Airdrop:</h2>
+      <div className="flex items-center gap-5">
+      <Input id="amount" type="text" placeholder="Amount" />
+      <Button onClick={requestAirdrop}> Send Airdrop</Button>
+    </div>
+    </div>
   )
 }
 

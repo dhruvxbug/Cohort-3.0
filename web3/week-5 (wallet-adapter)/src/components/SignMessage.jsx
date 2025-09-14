@@ -1,6 +1,8 @@
 import { ed25519 } from "@noble/curves/ed25519";
 import { useWallet } from "@solana/wallet-adapter-react"; 
 import bs58 from "bs58";
+import { Button } from "./retroui/Button";
+import { Input } from "./retroui/Input";
 
 export default function SignMessage(){
     const {publicKey, signMessage} = useWallet();
@@ -18,9 +20,12 @@ export default function SignMessage(){
     }
 
     return (
-        <div>
-            <input type="text" id="message" placeholder="Message" />
-            <button onClick={Sign}> Sign Message </button>
+        <div className="mb-8">
+        <h1 className="text-2xl font-normal text-gray-800 ">Message Signature:</h1>
+          <div className="flex items-center gap-5" >
+            <Input type="text" id="message" placeholder="Message" />
+            <Button onClick={Sign}> Sign Message </Button>
+        </div>
         </div>
     )
 }
