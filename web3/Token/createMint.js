@@ -6,7 +6,7 @@ const { createMint } = require('@solana/spl-token');
 const { Keypair, Connection, clusterApiUrl,  TOKEN_PROGRAM_ID } = require('@solana/web3.js');
 
 // keypair (mintAuthority) from private key and connection
-const payer = Keypair.fromSecretKey(Uint8Array.from([102,144,169,42,220,87,99,85,100,128,197,17,41,234,250,84,87,98,161,74,15,249,83,6,120,159,135,22,46,164,204,141,234,217,146,214,61,187,254,97,124,111,61,29,54,110,245,186,11,253,11,127,213,20,73,8,25,201,22,107,4,75,26,120]));
+const payer = Keypair.fromSecretKey(Uint8Array.from());
 const mintAthority = payer;
 const connection = new Connection(clusterApiUrl('devnet'));
 
